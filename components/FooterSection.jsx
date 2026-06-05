@@ -3,7 +3,7 @@ import React from "react";
 // react-icons থেকে সরাসরি ইমপোর্ট করা হলো
 import { FaFacebook, FaLinkedin, FaPinterest } from "react-icons/fa";
 
-export function FooterSection() {
+export default function FooterSection() {
   return (
     <footer className="bg-black text-gray-400 py-16 px-6 border-t border-gray-900">
       <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">

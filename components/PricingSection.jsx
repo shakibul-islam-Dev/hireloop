@@ -28,7 +28,7 @@ const PricingCard = ({ title, price, features, highlighted }) => (
   </div>
 );
 
-export function PricingSection() {
+export default function PricingSection() {
   const [billing, setBilling] = useState("monthly");
 
   return (

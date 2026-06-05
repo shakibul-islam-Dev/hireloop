@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function CTASection() {
+const CTASection = function () {
   return (
     <section
       className="relative overflow-hidden py-32 bg-cover bg-center bg-no-repeat bg-black"
@@ -54,4 +54,5 @@ export default function CTASection() {
       </div>
     </section>
   );
-}
+};
+export default CTASection;
