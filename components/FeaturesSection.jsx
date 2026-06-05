@@ -55,7 +55,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="bg-black text-white py-20 px-6">
+    <section className="bg-[#151516] text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

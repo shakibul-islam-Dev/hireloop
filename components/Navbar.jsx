@@ -12,14 +12,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Browse Jobs", href: "#" },
-    { label: "Company", href: "#" },
-    { label: "Pricing", href: "#" },
+    { label: "Browse Jobs", href: "/browse_jobs" },
+    { label: "Company", href: "/company" },
+    { label: "Pricing", href: "/pricing" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-[#121212]/90 backdrop-blur-md px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
+    <nav className="fixed   top-0 left-0 right-0 z-50 rounded-lg border-zinc-800 bg-[#121212]/90 backdrop-blur-md  px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto container mx-auto flex h-20 items-center justify-between">
         {/* Left Section: Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">

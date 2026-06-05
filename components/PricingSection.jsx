@@ -28,12 +28,11 @@ const PricingCard = ({ title, price, features, highlighted }) => (
   </div>
 );
 
-// এখন আমি এক্সপোর্ট ফাংশনের নাম দিলাম PricingSection যাতে আপনার কোডে ম্যাচ করে
 export function PricingSection() {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <div className="bg-black text-white py-24 px-6">
+    <div className="bg-black w-full text-white py-24 px-6">
       <div className="max-w-6xl mx-auto text-center mb-32">
         <p className="text-purple-500 font-medium tracking-[0.2em] text-sm mb-4">
           ■ PRICING ■
@@ -106,25 +105,6 @@ export function PricingSection() {
       </div>
 
       {/* CTA Section */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center border-t border-b border-gray-800 py-20 bg-gradient-to-b from-black to-[#0a0a1a]">
-        <h2 className="text-5xl font-bold mb-6">
-          Your next role is
-          <br />
-          already looking for you
-        </h2>
-        <p className="text-gray-400 mb-10 text-lg">
-          Build a profile in three minutes. The matches start arriving tomorrow
-          morning.
-        </p>
-        <div className="flex justify-center gap-4">
-          <button className="bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 transition">
-            Create a free account
-          </button>
-          <button className="border border-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-900 transition">
-            View pricing
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

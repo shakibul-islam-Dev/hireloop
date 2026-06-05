@@ -32,15 +32,15 @@ const JobCard = () => (
 
 export default function JobListings() {
   return (
-    <div className="min-h-screen bg-black text-white p-8 md:p-16">
+    <div className="min-h-screen text-white p-8 md:p-16">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-blue-500 font-medium tracking-widest text-sm mb-4">
+          <p className="text-white font-medium tracking-widest text-sm mb-4">
             ■ SMART JOB DISCOVERY ■
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            The roles you'd never
+            The roles you&apos;d never
             <br />
             find by searching
           </h1>
