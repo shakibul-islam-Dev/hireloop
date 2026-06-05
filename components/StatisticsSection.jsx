@@ -26,11 +26,12 @@ const StatisticsSection = () => {
       {/* Stats Grid */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
         {stats.map((stat, index) => (
-          <Card key={index} className="backdrop-blur-md">
-            <Card className="p-8">
-              <p className="text-white/60 text-sm mb-2">{stat.label}</p>
-              <h3 className="text-white text-4xl font-bold">{stat.value}</h3>
-            </Card>
+          <Card
+            key={index}
+            className="p-8 backdrop-blur-md bg-white/5 border border-white/10"
+          >
+            <p className="text-white/60 text-sm mb-2">{stat.label}</p>
+            <h3 className="text-white text-4xl font-bold">{stat.value}</h3>
           </Card>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button } from "@heroui/react";
 
-export default function SignupPage() {
+export default function SignIn() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl">

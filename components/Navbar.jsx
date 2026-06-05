@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Browse Jobs", href: "/browse_jobs" },
+    { label: "Browse Jobs", href: "/browsejobs" },
     { label: "Company", href: "/company" },
     { label: "Pricing", href: "/pricing" },
   ];

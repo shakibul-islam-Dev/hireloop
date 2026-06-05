@@ -1,10 +1,11 @@
+"use client";
 import React from "react";
-import SigIn from "./SigIn";
+import SignIn from "./SignIn";
 
-export default function SignUpPage() {
+export default function SignInPage() {
   return (
     <div>
-      <SigIn></SigIn>
+      <SignIn />
     </div>
   );
 }
