@@ -7,7 +7,7 @@ const stats = [
   { label: "Satisfaction Rate", value: "97%" },
 ];
 
-export default function StatisticsSection() {
+const StatisticsSection = () => {
   return (
     <section className="relative w-full py-20 px-4 flex flex-col items-center justify-center bg-black overflow-hidden">
       {/* Background Globe Image */}
@@ -36,4 +36,6 @@ export default function StatisticsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default StatisticsSection;

@@ -28,9 +28,8 @@ const PricingCard = ({ title, price, features, highlighted }) => (
   </div>
 );
 
-export default function PricingSection() {
+const PricingSection = () => {
   const [billing, setBilling] = useState("monthly");
-
   return (
     <div className="bg-black w-full text-white py-24 px-6">
       <div className="max-w-6xl mx-auto text-center mb-32">
@@ -107,4 +106,6 @@ export default function PricingSection() {
       {/* CTA Section */}
     </div>
   );
-}
+};
+
+export default PricingSection;

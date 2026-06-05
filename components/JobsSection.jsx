@@ -30,7 +30,7 @@ const JobCard = () => (
   </div>
 );
 
-export default function JobListings() {
+const JobsSection = () => {
   return (
     <div className="min-h-screen text-white p-8 md:p-16">
       <div className="max-w-6xl mx-auto">
@@ -62,4 +62,6 @@ export default function JobListings() {
       </div>
     </div>
   );
-}
+};
+
+export default JobsSection;

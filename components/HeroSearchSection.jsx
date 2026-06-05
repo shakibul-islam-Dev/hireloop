@@ -1,7 +1,7 @@
 import { Input, Button } from "@heroui/react";
 import { Search, MapPin, Briefcase } from "lucide-react";
 
-export default function HeroSearchSection() {
+const HeroSearchSection = () => {
   return (
     <section className="w-full flex flex-col items-center justify-center py-16 px-4 bg-black text-white">
       {/* Badge */}
@@ -79,4 +79,6 @@ export default function HeroSearchSection() {
       </div>
     </section>
   );
-}
+};
+
+export default HeroSearchSection;
