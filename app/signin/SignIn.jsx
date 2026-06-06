@@ -1,7 +1,34 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Input, Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignIn() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    await authClient.signUp.email(
+      {
+        email,
+        password,
+        name,
+        callbackURL: "/dashboard",
+      },
+      {
+        onSuccess: () => {
+          alert("Account created successfully!");
+        },
+        onError: (ctx) => {
+          alert(ctx.error.message); // এটা দেখলে বুঝতে পারব সমস্যা কোথায়
+        },
+      },
+    );
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl">
@@ -10,12 +37,14 @@ export default function SignIn() {
           <p className="text-slate-400">Join our community today</p>
         </div>
 
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSignUp}>
           <Input
             label="Full Name"
             placeholder="Enter your name"
             variant="bordered"
             color="primary"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             type="email"
@@ -23,6 +52,8 @@ export default function SignIn() {
             placeholder="Enter your email"
             variant="bordered"
             color="primary"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
@@ -30,8 +61,11 @@ export default function SignIn() {
             placeholder="Create a password"
             variant="bordered"
             color="primary"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Button
+            type="submit"
             className="w-full mt-2 font-semibold"
             color="primary"
             size="lg"

@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-theme="dark"
       className={`${inter.className}  dark h-full antialiased`}
     >
