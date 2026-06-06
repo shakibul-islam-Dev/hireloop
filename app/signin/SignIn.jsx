@@ -2,31 +2,41 @@
 import React, { useState } from "react";
 import { Input, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
-export default function SignIn() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function SignUp() {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    await authClient.signUp.email(
-      {
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+      const { data, error } = await authClient.signUp.email({
         email,
         password,
         name,
-        callbackURL: "/dashboard",
-      },
-      {
-        onSuccess: () => {
-          alert("Account created successfully!");
-        },
-        onError: (ctx) => {
-          alert(ctx.error.message); // এটা দেখলে বুঝতে পারব সমস্যা কোথায়
-        },
-      },
-    );
+        callbackURL: "/",
+      });
+
+      if (error) {
+        console.log(error.message || "Something went wrong");
+        setIsLoading(false);
+      } else {
+        console.log("Account created successfully!");
+        router.push("/");
+        router.refresh();
+      }
+    } catch (err) {
+      console.log("An unexpected error occurred");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -39,38 +49,36 @@ export default function SignIn() {
 
         <form className="flex flex-col gap-4" onSubmit={handleSignUp}>
           <Input
+            name="name"
             label="Full Name"
             placeholder="Enter your name"
             variant="bordered"
             color="primary"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
           />
           <Input
+            name="email"
             type="email"
             label="Email"
             placeholder="Enter your email"
             variant="bordered"
             color="primary"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
+            name="password"
             type="password"
             label="Password"
             placeholder="Create a password"
             variant="bordered"
             color="primary"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
           <Button
             type="submit"
             className="w-full mt-2 font-semibold"
             color="primary"
             size="lg"
+            isLoading={isLoading}
           >
-            Sign Up
+            {isLoading ? "Signing up..." : "Sign Up"}
           </Button>
         </form>
 
