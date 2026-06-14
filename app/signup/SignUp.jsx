@@ -4,22 +4,24 @@ import { useRouter } from "next/navigation";
 import { Input, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 
-export default function SignIn() {
+export default function SignUp() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSignIn = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
 
     try {
-      const { data, error } = await authClient.signIn.email({
+      const { data, error } = await authClient.signUp.email({
         email,
         password,
+        name,
         callbackURL: "/",
       });
 
@@ -27,7 +29,7 @@ export default function SignIn() {
         console.log(error.message || "Something went wrong");
         setIsLoading(false);
       } else {
-        router.replace("/");
+        router.push("/");
         router.refresh();
       }
     } catch (err) {
@@ -40,11 +42,18 @@ export default function SignIn() {
     <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-white">Sign In</h2>
-          <p className="text-slate-400">Welcome back to your account</p>
+          <h2 className="text-2xl font-bold text-white">Create Account</h2>
+          <p className="text-slate-400">Join our community today</p>
         </div>
 
-        <form className="flex flex-col gap-4" onSubmit={handleSignIn}>
+        <form className="flex flex-col gap-4" onSubmit={handleSignUp}>
+          <Input
+            name="name"
+            label="Full Name"
+            placeholder="Enter your name"
+            variant="bordered"
+            color="primary"
+          />
           <Input
             name="email"
             type="email"
@@ -57,7 +66,7 @@ export default function SignIn() {
             name="password"
             type="password"
             label="Password"
-            placeholder="Enter your password"
+            placeholder="Create a password"
             variant="bordered"
             color="primary"
           />
@@ -68,14 +77,14 @@ export default function SignIn() {
             size="lg"
             isLoading={isLoading}
           >
-            {isLoading ? "Signing in..." : "Sign In"}
+            {isLoading ? "Signing up..." : "Sign Up"}
           </Button>
         </form>
 
         <p className="text-center text-sm text-slate-500 mt-6">
-          Don&apos;t have an account?{" "}
-          <a href="/signup" className="text-primary hover:underline">
-            Sign up
+          Already have an account?{" "}
+          <a href="/signin" className="text-primary hover:underline">
+            Sign in
           </a>
         </p>
       </div>

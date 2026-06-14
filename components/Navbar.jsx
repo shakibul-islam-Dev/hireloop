@@ -7,10 +7,18 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { useSession, signOut } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { data: session, isPending } = useSession();
+
+  const user = session?.user;
+  const handleSignOut = async () => {
+    await authClient.signOut();
+  };
   const navLinks = [
     { label: "Browse Jobs", href: "/browsejobs" },
     { label: "Company", href: "/company" },
@@ -55,13 +63,27 @@ const Navbar = () => {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-x-4">
-            <Button
-              variant="ghost"
-              className="text-sm font-medium text-[#7c3aed] hover:bg-zinc-800/50 hover:text-[#9333ea]"
-              asChild
-            >
-              <Link href="/signin">Sign In</Link>
-            </Button>
+            {user ? (
+              <>
+                <h1 className="text-white">Hi {user.name}</h1>
+                <Button
+                  onClick={handleSignOut}
+                  variant="ghost"
+                  className="text-sm font-medium text-[#ffffff] hover:bg-red-800 hover:text-[#000000]"
+                  asChild
+                >
+                  <Link href="/signin">Sign Out</Link>
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="ghost"
+                className="text-sm font-medium text-[#7c3aed] hover:bg-zinc-800/50 hover:text-[#9333ea]"
+                asChild
+              >
+                <Link href="/signin">Sign In</Link>
+              </Button>
+            )}
 
             <Button
               className="rounded-xl bg-gradient-to-r from-[#6366f1] via-[#7c3aed] to-[#4f46e5] px-5 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:opacity-90 hover:shadow-[#7c3aed]/20"

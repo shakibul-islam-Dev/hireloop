@@ -1,11 +1,14 @@
-"use client";
-import React from "react";
 import SignIn from "./SignIn";
-
-export default function SignInPage() {
+export const metadata = {
+  title: "Signin-page",
+  description: "Sign In for",
+};
+const SignInPage = () => {
   return (
     <div>
-      <SignIn />
+      <SignIn></SignIn>
     </div>
   );
-}
+};
+
+export default SignInPage;
