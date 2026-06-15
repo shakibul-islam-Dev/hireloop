@@ -2,9 +2,9 @@ import DashboardSideBar from "@/components/dashboard/DashboardSideBar";
 
 const Dashboardlayout = ({ children }) => {
   return (
-    <div className="dark h-full pt-10">
+    <div className="dark flex min-h-screen pt-10">
       <DashboardSideBar></DashboardSideBar>
-      {children}
+      <div className="flex-1">{children}</div>
     </div>
   );
 };
