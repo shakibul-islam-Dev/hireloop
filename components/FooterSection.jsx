@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-// react-icons থেকে সরাসরি ইমপোর্ট করা হলো
 import { FaFacebook, FaLinkedin, FaPinterest } from "react-icons/fa";
 
 const FooterSection = () => {
   return (
-    <footer className="bg-black text-gray-400 py-16 px-6 border-t border-gray-900">
-      <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+    // 'sticky top-[100vh]' ব্যবহার করা হয়েছে যাতে কন্টেন্ট কম থাকলেও এটি নিচে থাকে
+    <footer className="sticky top-[100vh] bg-black text-gray-400 py-16 px-6 border-t border-gray-900 mt-auto">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Logo and Tagline */}
         <div className="lg:col-span-2">
           <h2 className="text-white text-2xl font-bold mb-4 flex items-center">
@@ -29,7 +29,7 @@ const FooterSection = () => {
           </div>
         </div>
 
-        {/* Links */}
+        {/* Product Links */}
         <div>
           <h3 className="text-white font-semibold mb-6">Product</h3>
           <ul className="space-y-4 text-sm">
@@ -56,6 +56,7 @@ const FooterSection = () => {
           </ul>
         </div>
 
+        {/* Navigation Links */}
         <div>
           <h3 className="text-white font-semibold mb-6">Navigations</h3>
           <ul className="space-y-4 text-sm">
@@ -77,6 +78,7 @@ const FooterSection = () => {
           </ul>
         </div>
 
+        {/* Resources Links */}
         <div>
           <h3 className="text-white font-semibold mb-6">Resources</h3>
           <ul className="space-y-4 text-sm">
