@@ -8,27 +8,36 @@ import {
   LayoutSideContentLeft,
 } from "@gravity-ui/icons";
 import { Button, Drawer } from "@heroui/react";
+import Link from "next/link";
 
 const DashboardSideBar = () => {
   const navItems = [
-    { icon: House, label: "Home" },
-    { icon: Magnifier, label: "Search" },
-    { icon: Bell, label: "Notifications" },
-    { icon: Envelope, label: "Messages" },
-    { icon: Person, label: "Profile" },
-    { icon: Gear, label: "Settings" },
+    { icon: House, label: "Dashboard", href: "/dashboard/recruiter" },
+    {
+      icon: Magnifier,
+      label: "My Company",
+      href: "/dashboard/recruiter/company",
+    },
+    { icon: Bell, label: "Manage Jobs", href: "/dashboard/recruiter/jobs" },
+    {
+      icon: Envelope,
+      label: "Applications",
+      href: "/dashboard/recruiter/applications",
+    },
+    { icon: Gear, label: "Settings", href: "/dashboard/recruiter/settings" },
   ];
   const navContent = (
     <nav className="flex flex-col gap-1">
       {navItems.map((item) => (
-        <button
+        <Link
           key={item.label}
+          href={item.href}
           className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-default"
           type="button"
         >
           <item.icon className="size-5 text-muted" />
           {item.label}
-        </button>
+        </Link>
       ))}
     </nav>
   );

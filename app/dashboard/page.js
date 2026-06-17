@@ -1,5 +1,9 @@
-// app/dashboard/page.js
+const DashboardPage = () => {
+  return (
+    <div>
+      <h1>This is Dashboard Page</h1>
+    </div>
+  );
+};
 
-export default function DashboardPage() {
-  return <h1>Dashboard</h1>;
-}
+export default DashboardPage;
