@@ -96,7 +96,7 @@ export default function SignUp() {
                   <Radio.Indicator />
                 </Radio.Control>
                 <Radio.Content>
-                  <Label>Seeker</Label>
+                  <Label>User</Label>
                 </Radio.Content>
               </Radio>
               <Radio value="admin">
@@ -104,7 +104,7 @@ export default function SignUp() {
                   <Radio.Indicator />
                 </Radio.Control>
                 <Radio.Content>
-                  <Label>Admin</Label>
+                  <Label>Recruiter</Label>
                 </Radio.Content>
               </Radio>
             </RadioGroup>

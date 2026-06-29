@@ -25,20 +25,12 @@ const Navbar = () => {
   ];
 
   return (
-    // 'fixed' সরিয়ে 'relative' এবং 'w-full' দেওয়া হয়েছে
     <nav className="relative w-full z-50 border-b border-zinc-800 bg-[#121212]/90 backdrop-blur-md px-4 sm:px-6 lg:px-8">
       <div className="mx-auto container flex h-20 items-center justify-between">
         {/* Left Section: Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Hire Loop Logo"
-              width={140}
-              height={40}
-              className="h-auto w-auto object-contain"
-              priority
-            />
+            Job<span>Exploer</span>
           </Link>
         </div>
 
@@ -72,21 +64,22 @@ const Navbar = () => {
                 </Button>
               </>
             ) : (
-              <Button
-                variant="ghost"
-                className="text-sm font-medium text-[#7c3aed] hover:bg-zinc-800/50 hover:text-[#9333ea]"
-                asChild
-              >
-                <Link href="/signin">Sign In</Link>
-              </Button>
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-sm font-medium text-[#7c3aed] hover:bg-zinc-800/50 hover:text-[#9333ea]"
+                  asChild
+                >
+                  <Link href="/signin">Sign In</Link>
+                </Button>
+                <Button
+                  className="rounded-xl bg-gradient-to-r from-[#6366f1] via-[#7c3aed] to-[#4f46e5] px-5 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:opacity-90"
+                  asChild
+                >
+                  <Link href="/get-started">Get Started</Link>
+                </Button>
+              </>
             )}
-
-            <Button
-              className="rounded-xl bg-gradient-to-r from-[#6366f1] via-[#7c3aed] to-[#4f46e5] px-5 py-2 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:opacity-90"
-              asChild
-            >
-              <Link href="/get-started">Get Started</Link>
-            </Button>
           </div>
         </div>
 
